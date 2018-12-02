@@ -61,8 +61,8 @@ class Kind(BaseKind):
                 '%s/%s-%s.html.markdown' % (lang, name, lang.split('-')[1])
             )
             if os.path.isfile(filePath):
-                self.vim.command("pedit %s" % filePath)
-                self.vim.command("setlocal readonly")
+                self.vim.command("edit %s" % filePath)
+                return self.vim.command("setlocal readonly")
 
         self.vim.command("edit %s" % actionPath)
-        self.vim.command("setlocal readonly")
+        return self.vim.command("setlocal readonly")
